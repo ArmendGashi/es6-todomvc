@@ -2,8 +2,10 @@ process.env.BABEL_ENV = 'test'
 const webpackEnv = {test: true}
 const webpackConfig = require('./webpack.config.babel')(webpackEnv)
 
-const testGlob = 'src/**/*.test.js'
-const srcGlob = 'src/**/!(*.test|*.stub).js'
+const [testGlob, srcGlob] = [
+  'src/**/*.test.js', 
+  'src/**/!(*.test|*.stub).js'
+]
 
 module.exports = config => {
   config.set({
